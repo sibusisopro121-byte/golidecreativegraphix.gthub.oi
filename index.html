@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golide Creation Graphix</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<div class="logo-box">
+<img src="images/logo.png" class="logo">
+<h2>Golide Creation Graphix</h2>
+</div>
+</header>
+
+<section class="hero">
+<h1>We Design. We Create. We Elevate.</h1>
+<button class="btn" onclick="sendOrder()">Order Now</button>
+</section>
+
+<section>
+<h2>Our Work</h2>
+
+<div class="folders">
+<div class="folder" onclick="openFolder('birthday')">📁 Birthday</div>
+<div class="folder" onclick="openFolder('church')">📁 Church</div>
+<div class="folder" onclick="openFolder('event')">📁 Event</div>
+<div class="folder" onclick="openFolder('social')">📁 Social</div>
+<div class="folder" onclick="openFolder('logo')">📁 Logos</div>
+<div class="folder" onclick="openFolder('lodge')">📁 Lodge</div>
+</div>
+
+<div id="gallery" class="grid"></div>
+</section>
+
+<!-- FULLSCREEN VIEW -->
+<div id="viewer" onclick="closeViewer()">
+<img id="fullImg">
+</div>
+
+<footer>
+<p>📞 0630685560</p>
+<p>📧 sibusisopro121@gmail.com</p>
+
+<!-- Hidden admin -->
+<a href="admin.html" style="opacity:0.2; font-size:12px;">Admin</a>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

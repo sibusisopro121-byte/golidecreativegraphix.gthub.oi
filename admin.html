@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<style>
+body{
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+input, select{
+margin:10px;
+padding:10px;
+}
+
+button{
+padding:10px 20px;
+background:gold;
+border:none;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Admin Login</h2>
+
+<div id="login">
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+</div>
+
+<div id="dashboard" style="display:none;">
+<h2>Upload Work</h2>
+
+<select id="folder">
+<option value="birthday">Birthday</option>
+<option value="church">Church</option>
+<option value="event">Event</option>
+<option value="social">Social</option>
+<option value="logo">Logo</option>
+<option value="lodge">Lodge</option>
+</select>
+
+<input type="file" id="file">
+<button onclick="upload()">Upload</button>
+</div>
+
+<script>
+function login(){
+let u=document.getElementById("user").value
+let p=document.getElementById("pass").value
+
+if(u==="Golide" && p==="GolideLegacy12"){
+document.getElementById("login").style.display="none"
+document.getElementById("dashboard").style.display="block"
+}else{
+alert("Wrong login")
+}
+}
+
+function upload(){
+
+let file=document.getElementById("file").files[0]
+let folder=document.getElementById("folder").value
+
+let reader=new FileReader()
+
+reader.onload=function(e){
+
+let data=e.target.result
+
+let images=JSON.parse(localStorage.getItem(folder))||[]
+images.push(data)
+
+localStorage.setItem(folder, JSON.stringify(images))
+
+alert("Uploaded successfully!")
+}
+
+reader.readAsDataURL(file)
+}
+</script>
+
+</body>
+</html>
